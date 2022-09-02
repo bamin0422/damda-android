@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "532193050984",
+    "project_id": "damda-7a2d5",
+    "storage_bucket": "damda-7a2d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532193050984:android:64697c11adbdea453ad6dd",
+        "android_client_info": {
+          "package_name": "com.android.damda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532193050984-a5qea52fhovf55fnmtkbkcr1u8pg0nba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAatGSdku6zjpqEieFW1VwpgLMI3qW_Vkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532193050984-a5qea52fhovf55fnmtkbkcr1u8pg0nba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
