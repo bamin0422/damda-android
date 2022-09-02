@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.android.damda.DamdaApp
 import com.android.damda.R
 import com.android.damda.databinding.ActivityLoginBinding
 import com.android.damda.ui.main.MainActivity
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
         if(auth?.currentUser?.email != null){
-            startActivity(Intent(this, MainActivity::class.java))
+            moveMainActivity(auth?.currentUser)
         }
         else{
             val binding: ActivityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
@@ -54,10 +55,8 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == GOOGLE_LOGIN_CODE) {
             var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data!!)
-            // result가 성공했을 때 이 값을 firebase에 넘겨주기
             if(result!!.isSuccess) {
                 var account = result.signInAccount
-                // Second step
                 firebaseAuthWithGoogle(account)
             }
         }
