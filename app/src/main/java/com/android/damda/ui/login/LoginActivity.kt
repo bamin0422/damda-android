@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.android.damda.DamdaApp
 import com.android.damda.R
 import com.android.damda.databinding.ActivityLoginBinding
 import com.android.damda.ui.main.MainActivity
@@ -57,13 +56,15 @@ class LoginActivity : AppCompatActivity() {
             var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data!!)
             if(result!!.isSuccess) {
                 var account = result.signInAccount
-                firebaseAuthWithGoogle(account)
+                var accessToken = account?.serverAuthCode
+                firebaseAuthWithGoogle(account, accessToken)
             }
         }
     }
 
-    fun firebaseAuthWithGoogle(account : GoogleSignInAccount?) {
-        var credential = GoogleAuthProvider.getCredential(account?.idToken,null)
+    fun firebaseAuthWithGoogle(account: GoogleSignInAccount?, accessToken: String?) {
+        var credential = GoogleAuthProvider.getCredential(account?.idToken,accessToken)
+        Log.d(TAG, "accessToken : $accessToken, idToken : ${account?.idToken}")
         auth?.signInWithCredential(credential)
             ?.addOnCompleteListener {
                     task ->

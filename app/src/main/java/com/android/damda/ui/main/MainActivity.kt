@@ -8,12 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.android.damda.R
-import com.android.damda.databinding.ActivityLoginBinding
 import com.android.damda.databinding.ActivityMainBinding
-import com.android.damda.ui.main.fragment.MemoryFragment
-import com.android.damda.ui.main.fragment.PhotoFragment
-import com.android.damda.ui.main.fragment.SearchFragment
-import com.android.damda.ui.main.fragment.SettingsFragment
+import com.android.damda.ui.main.fragment.memory.MemoryFragment
+import com.android.damda.ui.main.fragment.photo.PhotoFragment
+import com.android.damda.ui.main.fragment.search.SearchFragment
+import com.android.damda.ui.main.fragment.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 

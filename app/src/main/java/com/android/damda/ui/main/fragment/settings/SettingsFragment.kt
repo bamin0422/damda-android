@@ -1,4 +1,4 @@
-package com.android.damda.ui.main.fragment
+package com.android.damda.ui.main.fragment.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
