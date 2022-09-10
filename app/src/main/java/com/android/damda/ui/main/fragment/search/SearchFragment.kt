@@ -41,14 +41,14 @@ class SearchFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
         searchGrid = binding.searchGrid
         searchGrid.layoutManager = GridLayoutManager(requireContext(), 4)
-        searchGrid.adapter = PhotoGridAdapter(requireContext(), searchData)
+        searchGrid.adapter = SearchGridAdapter(requireContext(), searchData)
     }
 
     @SuppressLint("FragmentLiveDataObserve")
     private fun initViewModel() {
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
         searchViewModel.searchData.observe(this, Observer {
-            searchData = it
+            (searchGrid.adapter as SearchGridAdapter).setData(it)
         })
         searchData = searchViewModel.getSearchData()!!
     }

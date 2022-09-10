@@ -1,5 +1,6 @@
 package com.android.damda.ui.main.fragment.photo
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
@@ -19,7 +20,7 @@ import com.makeramen.roundedimageview.RoundedImageView
 @GlideModule
 class PhotoGridAdapter internal constructor(
     private val context : Context,
-    private val photoData: MutableList<ImgItem>)
+    private var photoData: MutableList<ImgItem>)
     : RecyclerView.Adapter<PhotoGridAdapter.PhotoGridViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -59,6 +60,12 @@ class PhotoGridAdapter internal constructor(
 
     override fun getItemCount(): Int {
         return photoData.size
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(newData:MutableList<ImgItem>){
+        photoData = newData
+        notifyDataSetChanged()
     }
 
     fun getItem(position: Int) = photoData[position]

@@ -18,6 +18,7 @@ import com.android.damda.databinding.FragmentMemoryBinding
 import com.android.damda.databinding.FragmentPhotoBinding
 import com.android.damda.ui.main.MainViewModel
 import com.android.damda.ui.main.fragment.memory.MemoryGridAdapter
+import com.android.damda.ui.main.fragment.search.SearchGridAdapter
 import kotlin.math.max
 import kotlin.math.min
 
@@ -46,7 +47,7 @@ class PhotoFragment : Fragment() {
         photoViewModel = ViewModelProvider(this).get(PhotoViewModel::class.java)
         photoViewModel
         photoViewModel.photoData.observe(this, Observer {
-            photoData = it
+            (photoGrid.adapter as PhotoGridAdapter).setData(it)
         })
         photoData = photoViewModel.getPhotoData()!!
         Log.d(TAG, "PhotoData : ${photoData.size}")

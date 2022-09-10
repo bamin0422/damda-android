@@ -1,5 +1,6 @@
 package com.android.damda.ui.main.fragment.search
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
@@ -19,7 +20,7 @@ import com.makeramen.roundedimageview.RoundedImageView
 @GlideModule
 class SearchGridAdapter internal constructor(
     private val context : Context,
-    private val photoData: MutableList<ImgItem>)
+    private var searchData: MutableList<ImgItem>)
     : RecyclerView.Adapter<SearchGridAdapter.SearchGridViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -42,7 +43,7 @@ class SearchGridAdapter internal constructor(
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<ImgItem> =
             object : ItemDetailsLookup.ItemDetails<ImgItem>() {
                 override fun getPosition(): Int = adapterPosition
-                override fun getSelectionKey(): ImgItem? = photoData[position]
+                override fun getSelectionKey(): ImgItem? = searchData[position]
             }
     }
 
@@ -54,13 +55,19 @@ class SearchGridAdapter internal constructor(
 
     override fun onBindViewHolder(holder: SearchGridViewHolder, position: Int) {
         Log.d(TAG,"onCreateBindViewHolder Called!!")
-        holder.setImgView(photoData[position])
+        holder.setImgView(searchData[position])
     }
 
     override fun getItemCount(): Int {
-        return photoData.size
+        return searchData.size
     }
 
-    fun getItem(position: Int) = photoData[position]
-    fun getPosition(title: String) = photoData.indexOfFirst { it.title == title }
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(newData:MutableList<ImgItem>){
+        searchData = newData
+        notifyDataSetChanged()
+    }
+
+    fun getItem(position: Int) = searchData[position]
+    fun getPosition(title: String) = searchData.indexOfFirst { it.title == title }
 }

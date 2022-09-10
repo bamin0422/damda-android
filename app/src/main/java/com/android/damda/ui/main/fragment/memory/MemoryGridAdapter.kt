@@ -1,5 +1,6 @@
 package com.android.damda.ui.main.fragment.memory
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
@@ -16,7 +17,7 @@ import com.makeramen.roundedimageview.RoundedImageView
 
 class MemoryGridAdapter internal constructor(
     private val context : Context,
-    private val memoryData: MutableList<ImgItem>)
+    private var memoryData: MutableList<ImgItem>)
     : RecyclerView.Adapter<MemoryGridAdapter.MemoryGridViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -55,6 +56,12 @@ class MemoryGridAdapter internal constructor(
 
     override fun getItemCount(): Int {
         return memoryData.size
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(newData:MutableList<ImgItem>){
+        memoryData = newData
+        notifyDataSetChanged()
     }
 
     fun getItem(position: Int) = memoryData[position]
