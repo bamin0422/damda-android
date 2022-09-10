@@ -18,14 +18,14 @@ class DadamRepositoryImpl : DadamReopsitory {
      * @return MutableList<ImgItem>
      **/
     override fun getMemoryItems(): MutableList<ImgItem> {
-        return mutableListOf()
+        return mutableListOf<ImgItem>()
     }
 
     override fun getPhotoItems(): MutableList<ImgItem> {
-        return mutableListOf()
+        return mutableListOf<ImgItem>()
     }
 
     override fun getSearchItems(): MutableList<ImgItem> {
-        return mutableListOf()
+        return mutableListOf<ImgItem>()
     }
 }

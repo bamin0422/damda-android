@@ -20,4 +20,9 @@
     <style name="customCheckboxFontStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
         <item name="android:fontFamily">@font/font</item>
     </style>
+
+    <style name="EditTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">#F8D551</item>
+        <item name="colorControlNormal">#F8D551</item>
+    </style>
 </resources>

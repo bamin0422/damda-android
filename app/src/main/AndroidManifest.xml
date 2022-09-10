@@ -21,6 +21,7 @@
         </activity>
         <activity android:name="com.android.damda.ui.login.LoginActivity" />
         <activity android:name="com.android.damda.ui.main.MainActivity" />
+        <activity android:name=".ui.photo.PhotoActivity" />
     </application>
 
 </manifest>
