@@ -1,17 +1,20 @@
 package com.android.damda.ui.main.fragment.memory
 
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
 import com.android.damda.R
 import com.android.damda.data.ImgItem
+import com.android.damda.ui.main.MainActivity
+import com.android.damda.ui.photo.PhotoActivity
 import com.bumptech.glide.Glide
 import com.makeramen.roundedimageview.RoundedImageView
 
@@ -45,13 +48,17 @@ class MemoryGridAdapter internal constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemoryGridViewHolder {
         val itemView = inflater.inflate(R.layout.item_container, parent, false)
-        Log.d(TAG,"onCreateViewHolder Called!!")
         return MemoryGridViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MemoryGridViewHolder, position: Int) {
-        Log.d(TAG,"onCreateBindViewHolder Called!!")
         holder.setImgView(memoryData[position])
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, PhotoActivity::class.java)
+            intent.putExtra("now", position)
+            intent.putExtra("frag", "memory")
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
