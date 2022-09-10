@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.selection.SelectionTracker
@@ -28,6 +29,7 @@ class MemoryGridAdapter internal constructor(
 
     inner class MemoryGridViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         private val imgView: RoundedImageView = itemView.findViewById(R.id.imagePost)
+        private val textView : TextView = itemView.findViewById(R.id.memory_title)
 
         fun setImgView(item: ImgItem) {
             Glide.with(context)
@@ -37,6 +39,7 @@ class MemoryGridAdapter internal constructor(
 //                .error(defaultImage) // 로딩 에러 발생 시 표시할 이미지
 //                .fallback(defaultImage) // 로드할 url 이 비어있을(null 등) 경우 표시할 이미지
                 .into(imgView)
+            textView.text = item.title
         }
 
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<ImgItem> =
