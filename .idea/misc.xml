@@ -12,10 +12,11 @@
         <entry key="app/src/main/res/drawable/item_background.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/rounded_bar.xml" value="0.31666666666666665" />
         <entry key="app/src/main/res/drawable/selected_item_background.xml" value="0.23958333333333334" />
+        <entry key="app/src/main/res/drawable/viewpager_content.xml" value="0.1" />
         <entry key="app/src/main/res/font/font.xml" value="0.2611111111111111" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3010621941756365" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20683701591762865" />
-        <entry key="app/src/main/res/layout/activity_photo.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_photo.xml" value="0.2892670399930515" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_memory.xml" value="0.20434132621895665" />
         <entry key="app/src/main/res/layout/fragment_photo.xml" value="0.3098958333333333" />
@@ -24,6 +25,7 @@
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/item_container.xml" value="0.2234375" />
         <entry key="app/src/main/res/layout/item_container_basic.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/viewpager_content.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.16238905813417978" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2611111111111111" />
       </map>
